@@ -84,7 +84,7 @@ void inpCloseAllInputDevs(void)
 
 void inpMousePtrOn(void)
 {
-      SDL_ShowCursor(SDL_DISABLE); 
+      SDL_ShowCursor(SDL_DISABLE);
 }
 
 void inpMousePtrOff(void)
@@ -145,7 +145,7 @@ S32 inpWaitFor(S32 l_Mask)
 			    action |= INP_KEYBOARD + INP_DOWN;
 			break;
 
-		    case SDLK_SPACE:
+
 		    case SDLK_RETURN:
 		    case SDLK_KP_ENTER:
 			if ((l_Mask & (INP_LBUTTONP | INP_LBUTTONR)))
@@ -157,7 +157,10 @@ S32 inpWaitFor(S32 l_Mask)
 			    action |= INP_KEYBOARD + INP_ESC;
 			break;
 
-		    case SDLK_F1:
+		    case SDLK_SPACE:
+	       if (SDLK_SPACE == SDL_PRESSED)
+            action |= INP_KEYBOARD + INP_FUNCTION_KEY;
+        break;
 		    case SDLK_F2:
 		    case SDLK_F3:
 		    case SDLK_F4:
@@ -207,6 +210,9 @@ S32 inpWaitFor(S32 l_Mask)
 		break;
 
     /*
+
+
+    	case SDL_KEYUP:
 	    case SDL_JOYBUTTONDOWN:
 		if (IHandler.JoyExists) {
 		    switch (ev.jbutton.button) {
