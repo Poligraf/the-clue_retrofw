@@ -116,7 +116,7 @@ static char AutoDetectLanguage(void)
 
     for (i = 0; i < array_len(langs); i++) {
         char File[DSK_PATH_MAX], Path[DSK_PATH_MAX];
-    
+
         sprintf(File, "tcmaine%c.txt", langs[i]);
         if (dskBuildPathName(DISK_CHECK_FILE, TEXT_DIRECTORY, File, Path)) {
             lang = langs[i];
@@ -227,7 +227,7 @@ static void CloseData(void)
 void tcSetPermanentColors(void)
 {
     U8 palette[GFX_PALETTE_SIZE];
-    
+
     palette[248 * 3 + 0] = 116;
     palette[248 * 3 + 1] = 224;
     palette[248 * 3 + 2] = 142;
@@ -251,7 +251,7 @@ void tcSetPermanentColors(void)
     palette[253 * 3 + 0] = 104;
     palette[253 * 3 + 1] = 104;
     palette[253 * 3 + 2] = 104;
-    
+
     palette[254 * 3 + 0] = 0;
     palette[254 * 3 + 1] = 0;
     palette[254 * 3 + 2] = 0;
@@ -696,9 +696,9 @@ int main(int argc, char **argv)
 
     /* set path for BuildPathName! */
     if ((result = getenv("DERCLOU_ROOTDIR"))) {
-        dskSetRootPath(result);
+        dskSetRootPath("/home/retrofw/games/clue");
     } else {
-        dskSetRootPath(".");
+        dskSetRootPath("/home/retrofw/games/clue");
     }
 
     if ((res = tcInit()))

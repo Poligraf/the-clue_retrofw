@@ -147,6 +147,7 @@ S32 inpWaitFor(S32 l_Mask)
 
 
 		    case SDLK_RETURN:
+        case SDLK_SPACE:
 		    case SDLK_KP_ENTER:
 			if ((l_Mask & (INP_LBUTTONP | INP_LBUTTONR)))
 			    action |= INP_KEYBOARD + INP_LBUTTONP;
@@ -157,8 +158,14 @@ S32 inpWaitFor(S32 l_Mask)
 			    action |= INP_KEYBOARD + INP_ESC;
 			break;
 
-		    case SDLK_SPACE:
-	       if (SDLK_SPACE == SDL_PRESSED)
+
+      case SDLK_LALT:
+    if (IHandler.EscStatus)
+        action |= INP_KEYBOARD + INP_ESC;
+    break;
+
+		    case SDLK_LSHIFT:
+	  	if (IHandler.FunctionKeyStatus)
             action |= INP_KEYBOARD + INP_FUNCTION_KEY;
         break;
 		    case SDLK_F2:
