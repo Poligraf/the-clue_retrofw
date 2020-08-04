@@ -1,5 +1,5 @@
 WARN	= -pedantic -Wall -Wmissing-prototypes -Wmissing-declarations\
-	  -Wsign-compare
+	  -Wsign-compare -Wno-declaration-after-statement
 OPT	= -O2 -funroll-loops
 CC      = /run/media/raboten/c03df044-bb85-4f9c-a53f-e537b8a024a0/mipsel-linux-uclibc/usr/bin/mipsel-linux-gcc  -I. -std=c89 $(OPT) $(WARN) -g
 O_FILES = anim/sysanim.o \
